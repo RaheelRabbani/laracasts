@@ -41,3 +41,10 @@ Route::get('posts/{post}', 'PostsController@show');
 
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('payments/create', 'PaymentsController@create')->middleware('auth');
+Route::post('payments', 'PaymentsController@store')->middleware('auth');
